@@ -16,6 +16,8 @@ from sklearn.gaussian_process.kernels import RBF
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import BaggingClassifier
 
 
 # Pfad zum Directory des Datensatzes
@@ -118,11 +120,59 @@ CLASSIFIER = {'Linear_SVC': SVC(kernel="linear", C=0.025, random_state=14),
                                      ),
               'AdaBoost': AdaBoostClassifier(random_state=14),
               'KNeighbors': KNeighborsClassifier(100),
-              # 'GaussianProcess': GaussianProcessClassifier(1.0 * RBF(1.0)),
-              'Decision_Tree': DecisionTreeClassifier(max_depth=5,
-                                                      random_state=14),
+              'GaussianProcess': GaussianProcessClassifier(1.0 * RBF(1.0)),
+              'Decision_Tree': DecisionTreeClassifier(random_state=14,
+                                                      criterion='gini',
+                                                      max_depth=4,
+                                                      min_samples_leaf=0.1,
+                                                      min_samples_split=0.1),
               'MLPC': MLPClassifier(alpha=1, max_iter=1000, random_state=14),
-              # 'GaussianNB': GaussianNB(),
-              # 'QuadraticDiscriminantAnalysis':
-              #     QuadraticDiscriminantAnalysis()
+              'GaussianNB': GaussianNB(),
+              'QuadraticDiscriminantAnalysis':
+                  QuadraticDiscriminantAnalysis(),
+              'XGBoost': GradientBoostingClassifier(random_state=14)
               }
+
+# Aktuell verwendete Modelle
+ACTIVE_CLASSIFIER = {'Bagging_Classifier':
+                     BaggingClassifier(base_estimator=
+                                       CLASSIFIER['Decision_Tree'],
+                                       n_estimators=100,
+                                       random_state=14)
+                     }
+
+# Parameter für Hyperparameter-Tuning
+HYPERPARAMS = {'max_depth': list(range(2, 21, 1)),
+               'criterion': ['gini', 'entropy'],
+               'min_samples_split': [0.1, 0.25, 0.5, 0.75, 1.0],
+               'min_samples_leaf': [0.1, 0.25, 0.45]}
+
+# Modelle mit getunten Parametern
+TUNED_CLASSIFIER = {'Random_Forest':
+                    RandomForestClassifier(max_depth=15,
+                                           n_estimators=25,
+                                           max_features=4,
+                                           random_state=14
+                                           ),
+                    'MLPC':
+                    MLPClassifier(alpha=0.001,
+                                  max_iter=900,
+                                  activation='logistic',
+                                  random_state=14),
+                    'AdaBoost':
+                    AdaBoostClassifier(n_estimators=100,
+                                       learning_rate=0.1,
+                                       algorithm='SAMME',
+                                       random_state=14),
+                    'XGBoost': GradientBoostingClassifier(learning_rate=0.1,
+                                                          max_depth=5,
+                                                          max_features='sqrt',
+                                                          n_estimators=300,
+                                                          random_state=12),
+                    'Decision_Tree':
+                        DecisionTreeClassifier(random_state=14,
+                                               criterion='gini',
+                                               max_depth=4,
+                                               min_samples_leaf=0.1,
+                                               min_samples_split=0.1)
+                    }

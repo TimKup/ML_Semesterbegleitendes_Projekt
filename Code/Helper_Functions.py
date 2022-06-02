@@ -8,6 +8,8 @@ Sonstige nützliche Funktionen für den Datensatz
 """
 
 import matplotlib.pyplot as plt
+import pandas as pd
+import Data_Labeling as dl
 
 
 # Funktion, um grundlegende Informationen eines Dataframes auszugeben
@@ -61,4 +63,33 @@ def plot_frequencies(df, figsize=(24, 8)):
                                 'max_freq_4_y', 'max_freq_5_y'],
             title='Frequenzanteil mit der größten Magnitude in y-Richtung',
             legend=True, figsize=figsize, subplots=True)
+    plt.show()
+
+
+# Funktion um die erzeugten Labels zu überprüfen
+def visualize_labels(file, column=None, title=None):
+    # Labels anzeigen
+    df = pd.read_csv(file)
+
+    # print(df[df.abs_rolling_mean_x >= 1.5].index.min())
+    # print(df[df.abs_rolling_mean_y >= 1.5].index.min())
+
+    df = dl.append_rul_class_col(df)
+    dl.visualize_class_labeling(df)
+
+    # rul_max = df[df['RUL_Class'] == 0]
+    # print(rul_max)
+
+    if column is None:
+        df.abs_rolling_mean_x.plot(color='red')
+        df.abs_rolling_mean_y.plot(color='green')
+    else:
+        df.column.plot(color='red')
+        df.column.plot(color='green')
+
+    if title is None:
+        plt.title('Darstellung der Labels')
+    else:
+        plt.title(title)
+
     plt.show()

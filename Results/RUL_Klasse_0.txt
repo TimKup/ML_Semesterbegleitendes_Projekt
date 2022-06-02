@@ -1,0 +1,18 @@
+Bearing 1_1: 1299 // 3,6 h
+Bearing 1_2: 870 // 2,4 h
+Bearing 2_1: 851 // 2,4 h
+Bearing 2_2: 790 // 2,2 h
+Bearing 3_1: 493 // 1,4 h
+Bearing 3_2: 1636 // 4,5 h
+Mittelwert: 	     2,75 h
+
+--------------------------------
+Ergebnisse mit gleitendem Mittelwert:
+Bearing 1_1: 2673 // 7,4 h
+Bearing 1_2: 851 // 2,4 h
+Bearing 2_1: 900 // 2,5 h
+Bearing 2_2: 786 // 2,2 h
+Bearing 3_1: 493 // 1,4 h
+Bearing 3_2: 1628 // 4,5 h
+Mittelwert: 	     3,40 h --> Klassengrenze bei 1,7
+Median: 	     2,45 h --> Klassengrenze bei 1,225

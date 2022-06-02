@@ -9,6 +9,7 @@ Funktionen zur Labelung des Datensatzes.
 
 import pandas as pd
 import os
+import numpy as np
 
 
 # Funktion zur automatischen Labelung der Daten in Klassen
@@ -20,38 +21,76 @@ def append_rul_class_col(df):
     # y-Richtung auftreten
     # Index dieser Spalte bestimmen
     try:
-        index_x = min(df[df.abs_max_x > 20].index)
+        # index_x = df[df.abs_max_x >= 20].index.min()
+        index_x = df[df.abs_rolling_mean_x >= 2].index.min()  # 1.5
     except ValueError:
         index_x = df_reset.iloc[-1]
     try:
-        index_y = min(df[df.abs_max_y > 20].index)
+        # index_y = df[df.abs_max_y >= 20].index.min()
+        index_y = df[df.abs_rolling_mean_y >= 2].index.min()
     except ValueError:
         index_y = df_reset.iloc[-1]
 
     # Bestimmen, welcher Wert kleiner ist.
     try:
-        rul_0_index = min(index_x, index_y)
+        rul_0_index = np.nanmin([index_x, index_y])
+        # if RuntimeWarning:
+        #     rul_0_index = len(df_reset['index']) - 1
     except ValueError:
         # Für den Fall, dass der Wert nie über 20G ist, wird der letzte Wert
         # einfach auf RUL_Class=0 gesetzt
-        rul_0_index = len(df_reset['index']) - 1
+        pass
+        # rul_0_index = len(df_reset['index']) - 1
+    if np.isnan(rul_0_index):
+        pass
+        # rul_0_index = len(df_reset['index']) - 1
+    # if rul_0_index == 'nan':
+    #     rul_0_index = len(df_reset['index']) - 1
 
     # Funktion zur Berechnung der zugehörigen Klasse je nach verbleibender
     # time-to-failure
+    # def calc_rul_class(row):
+    #     if row['index'] >= rul_0_index:
+    #         val = 0
+    #     # Erster Eintrag ist immer ohne Verschleiß
+    #     elif row['index'] == 0:
+    #         val = 2
+    #     else:
+    #         diff = rul_0_index - row['index']
+    #         # Zeit bis zum Ausfall in Stunden
+    #         time_to_failure = (diff * 10) / 3600
+
+    #         # Kein Verschleiß
+    #         if time_to_failure > 1.225:  # 1.2
+    #             val = 2
+    #         else:
+    #             # Verschleiß erkennbar
+    #             val = 1
+
+    #     return val
+
+    # Variante ohne kaputt am Ende
     def calc_rul_class(row):
-        if row['index'] >= rul_0_index:
-            val = 0
+        # Erster Eintrag ist immer ohne Verschleiß
+        if row['index'] == 0:
+            val = 2
         else:
             diff = rul_0_index - row['index']
             # Zeit bis zum Ausfall in Stunden
             time_to_failure = (diff * 10) / 3600
 
+            if np.isnan(time_to_failure):
+                time_to_failure = len(df) / 360 - row['index'] / 360
+
             # Kein Verschleiß
-            if time_to_failure > 1.2:
+            if time_to_failure > 1.225:  # 1.2
                 val = 2
-            else:
+            elif time_to_failure <= 1.225 and time_to_failure > 0:
                 # Verschleiß erkennbar
                 val = 1
+            else:
+                # Teil kaputt
+                val = 0
 
         return val
 

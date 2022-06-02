@@ -1,0 +1,151 @@
+====================
+Modell: Linear_SVC
+Ergebnisse des Trainings:
+Recall: 0.7803583278035833
+Precision: 0.7858850126788599
+Accuracy: 0.7803583278035833
+F1-Score: 0.7449942070881717
+[[294  21   2]
+ [  4 789  30]
+ [  1 273  93]]
+              precision    recall  f1-score   support
+
+           0       0.98      0.93      0.95       317
+           1       0.73      0.96      0.83       823
+           2       0.74      0.25      0.38       367
+
+    accuracy                           0.78      1507
+   macro avg       0.82      0.71      0.72      1507
+weighted avg       0.79      0.78      0.74      1507
+
+Ergebnisse des Testsets:
+Recall: 0.404541872626979
+Precision: 0.4306736563181343
+Accuracy: 0.404541872626979
+F1-Score: 0.37231017813385375
+[[ 155   30    3]
+ [ 762 4557 1425]
+ [1126 4966  935]]
+              precision    recall  f1-score   support
+
+           0       0.08      0.82      0.14       188
+           1       0.48      0.68      0.56      6744
+           2       0.40      0.13      0.20      7027
+
+    accuracy                           0.40     13959
+   macro avg       0.32      0.54      0.30     13959
+weighted avg       0.43      0.40      0.37     13959
+
+====================
+Modell: Nonlinear_SVC
+Ergebnisse des Trainings:
+Recall: 0.7504976775049768
+Precision: 0.8014110150772141
+Accuracy: 0.7504976775049768
+F1-Score: 0.7328324093971866
+[[153 164   0]
+ [  0 795  28]
+ [  0 184 183]]
+              precision    recall  f1-score   support
+
+           0       1.00      0.48      0.65       317
+           1       0.70      0.97      0.81       823
+           2       0.87      0.50      0.63       367
+
+    accuracy                           0.75      1507
+   macro avg       0.85      0.65      0.70      1507
+weighted avg       0.80      0.75      0.73      1507
+
+Ergebnisse des Testsets:
+Recall: 0.4833440790887599
+Precision: 0.6529639937229891
+Accuracy: 0.4833440790887599
+F1-Score: 0.31548740217699517
+[[   0  188    0]
+ [   1 6742    1]
+ [   0 7022    5]]
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       188
+           1       0.48      1.00      0.65      6744
+           2       0.83      0.00      0.00      7027
+
+    accuracy                           0.48     13959
+   macro avg       0.44      0.33      0.22     13959
+weighted avg       0.65      0.48      0.32     13959
+
+====================
+Modell: Random_Forest
+Ergebnisse des Trainings:
+Recall: 0.8944923689449237
+Precision: 0.8952940792242164
+Accuracy: 0.8944923689449237
+F1-Score: 0.8937604532246101
+[[296  21   0]
+ [  1 770  52]
+ [  0  85 282]]
+              precision    recall  f1-score   support
+
+           0       1.00      0.93      0.96       317
+           1       0.88      0.94      0.91       823
+           2       0.84      0.77      0.80       367
+
+    accuracy                           0.89      1507
+   macro avg       0.91      0.88      0.89      1507
+weighted avg       0.90      0.89      0.89      1507
+
+Ergebnisse des Testsets:
+Recall: 0.4344867110824558
+Precision: 0.4880807109992429
+Accuracy: 0.4344867110824558
+F1-Score: 0.3828044477283637
+[[ 136   49    3]
+ [ 768 5193  783]
+ [1242 5049  736]]
+              precision    recall  f1-score   support
+
+           0       0.06      0.72      0.12       188
+           1       0.50      0.77      0.61      6744
+           2       0.48      0.10      0.17      7027
+
+    accuracy                           0.43     13959
+   macro avg       0.35      0.53      0.30     13959
+weighted avg       0.49      0.43      0.38     13959
+
+====================
+Modell: AdaBoost
+Ergebnisse des Trainings:
+Recall: 0.6861313868613139
+Precision: 0.7600750733483123
+Accuracy: 0.6861313868613139
+F1-Score: 0.6907080272233986
+[[294  23   0]
+ [ 31 434 358]
+ [  0  61 306]]
+              precision    recall  f1-score   support
+
+           0       0.90      0.93      0.92       317
+           1       0.84      0.53      0.65       823
+           2       0.46      0.83      0.59       367
+
+    accuracy                           0.69      1507
+   macro avg       0.73      0.76      0.72      1507
+weighted avg       0.76      0.69      0.69      1507
+
+Ergebnisse des Testsets:
+Recall: 0.3667884518948349
+Precision: 0.3556744619643366
+Accuracy: 0.3667884518948349
+F1-Score: 0.3462329975087153
+[[  98   87    3]
+ [ 238 3673 2833]
+ [ 125 5553 1349]]
+              precision    recall  f1-score   support
+
+           0       0.21      0.52      0.30       188
+           1       0.39      0.54      0.46      6744
+           2       0.32      0.19      0.24      7027
+
+    accuracy                           0.37     13959
+   macro avg       0.31      0.42      0.33     13959
+weighted avg       0.36      0.37      0.35     13959
