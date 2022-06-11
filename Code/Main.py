@@ -12,6 +12,7 @@ import Data_Input_and_Feature_Extraction as fe
 import Data_Labeling as dl
 import Classification as cl
 import Helper_Functions as helper
+import Regression as rg
 
 import os
 # import numpy as np
@@ -19,10 +20,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 # from sklearn.decomposition import PCA
 
 import warnings
+import math
+
+from sklearn.metrics import mean_squared_error
 
 
 def create_data():
@@ -61,12 +65,12 @@ def label_data():
     test_data.to_csv(save_path)
 
     # TODO: Entfernen?
-    # Labels anzeigen
-    file = os.path.join(c.INPUT_LABELING, 'Lernsets',
-                        'Bearing1_1_time_params.csv')
-    title = 'Bearing 1_1 - Grenzwert: 2g - Klassengrenze: 1.225 h - ' \
-            'ohne Annahme der Zerstörung am Ende'
-    helper.visualize_labels(file, title=title)
+    # # Labels anzeigen
+    # file = os.path.join(c.INPUT_LABELING, 'Lernsets',
+    #                     'Bearing1_1_time_params.csv')
+    # title = 'Bearing 1_1 - Grenzwert: 2g - Klassengrenze: 1.225 h - ' \
+    #         'ohne Annahme der Zerstörung am Ende'
+    # helper.visualize_labels(file, title=title)
 
 
 def prepare_classification_data():
@@ -76,7 +80,7 @@ def prepare_classification_data():
 
     # Merkmale extrahieren
     X = df[c.FEATURES]
-    y = df[c.Y]
+    y = df[c.Y_CLASSIFICATION]
 
     # Merkmale skalieren
     X = StandardScaler().fit_transform(X)
@@ -99,7 +103,7 @@ def prepare_classification_data():
 
     # Merkmale extrahieren
     X_testset = df_test[c.FEATURES]
-    y_testset = df_test[c.Y]
+    y_testset = df_test[c.Y_CLASSIFICATION]
 
     # Merkmale skalieren
     X_testset = StandardScaler().fit_transform(X_testset)
@@ -189,6 +193,87 @@ def run_classification_models(X_train, X_test, y_train, y_test,
             cl.score_model(predictions, reduced_y)
 
 
+def prepare_regression_data():
+    # Trainingsdaten zur Klassifizierung einlesen
+    filepath = os.path.join(c.INPUT_CLASSIFIER, 'Lernset_Klassifikation.csv')
+    df = pd.read_csv(filepath, index_col=[0, 1])
+
+    # Merkmale extrahieren
+    X = df[c.FEATURES]
+    y = df[c.Y_REGRESSION]
+
+    # Merkmale skalieren
+    X = MinMaxScaler(feature_range=(0, 1)).fit_transform(X)
+
+    # Dimensionsreduzierung
+    # pca = PCA(n_components=0.95)
+    # X = pca.fit_transform(X)
+    # global n_components
+    # n_components = len(X[0])
+    # print(pca.explained_variance_ratio_)
+
+    # Train-Test-Split - ggf. stratify=y?
+    X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                        test_size=0.20,
+                                                        random_state=14)
+
+    # Testdatensatz einlesen
+    filepath = os.path.join(c.INPUT_CLASSIFIER, 'Testset_Klassifikation.csv')
+    df_test = pd.read_csv(filepath, index_col=[0, 1])
+
+    # Merkmale extrahieren
+    X_testset = df_test[c.FEATURES]
+    y_testset = df_test[c.Y_REGRESSION]
+
+    # Merkmale skalieren
+    X_testset = MinMaxScaler(feature_range=(0, 1)).fit_transform(X_testset)
+
+    # Dimensionsreduzierung
+    # pca = PCA(n_components=n_components)
+    # X_testset = pca.fit_transform(X_testset)
+    # print(pca.explained_variance_ratio_)
+
+    return X_train, X_test, y_train, y_test, X_testset, y_testset, df_test
+
+
+def run_regression_models(X_train, X_test, y_train, y_test,
+                          X_testset, y_testset, df_test):
+    # Modelle betrachten
+    for name, model in c.REGRESSORS.items():
+        print('=' * 20)
+        print('Modell:', name)
+
+        # Modell trainieren
+        reg, y_pred = rg.train_model(model,
+                                     X_train, y_train, X_test)
+
+        # Genauigkeit für Testdaten aus Trainingsdaten bestimmen
+        print('Ergebnisse des Trainings:')
+        rg.score_model(y_pred, y_test)
+
+        # Genauigkeit für Testdatensatz bestimmen
+        print('\nErgebnisse des gesamten Testsets:')
+        predictions = reg.predict(X_testset)
+        rg.score_model(predictions, y_testset)
+
+        # Betrachtung der einzelnen Bearings
+        # for bearing in c.TEST_SETS:
+        #     print('\nErgebnisse für {}:'.format(bearing))
+        #     reduced_set = df_test.loc[bearing, slice(None), :]
+        #     reduced_X = reduced_set[c.FEATURES]
+        #     reduced_y = reduced_set[c.Y_REGRESSION]
+
+        #     # Merkmale skalieren
+        #     reduced_X = StandardScaler().fit_transform(reduced_X)
+
+        #     # Dimensionsreduzierung
+        #     # pca = PCA(n_components=n_components)
+        #     # reduced_X = pca.fit_transform(reduced_X)
+
+        #     predictions = reg.predict(reduced_X)
+        #     rg.score_model(predictions, reduced_y)
+
+
 def main():
     # Warnungen unterdrücken
     warnings.filterwarnings('ignore')
@@ -200,12 +285,35 @@ def main():
     # label_data()
 
     # Daten zur Klassifikation vorbereiten
-    X_train, X_test, y_train, y_test, X_testset, y_testset, df_test = \
-        prepare_classification_data()
+    # X_train, X_test, y_train, y_test, X_testset, y_testset, df_test = \
+    #     prepare_classification_data()
 
     # Klassifikation durchführen
-    run_classification_models(X_train, X_test, y_train, y_test,
-                              X_testset, y_testset, df_test)
+    # run_classification_models(X_train, X_test, y_train, y_test,
+    #                           X_testset, y_testset, df_test)
+
+    # Daten zur Regression vorbereiten
+    X_train, X_test, y_train, y_test, X_testset, y_testset, df_test = \
+        prepare_regression_data()
+
+    # Regression durchführen
+    # run_regression_models(X_train, X_test, y_train, y_test,
+    #                       X_testset, y_testset, df_test)
+
+    # Deep-Learning
+    model = c.LSTM_model()
+    model.fit(X_train, y_train, epochs=2, batch_size=1, verbose=1)
+    # make predictions
+    trainPredict = model.predict(X_train)
+    testPredict = model.predict(X_test)
+
+    print('Ergebnisse des Trainings:')
+    rg.score_model(testPredict, y_test)
+
+    # Genauigkeit für Testdatensatz bestimmen
+    print('\nErgebnisse des gesamten Testsets:')
+    predictions = model.predict(X_testset)
+    rg.score_model(predictions, y_testset)
 
 
 if __name__ == '__main__':

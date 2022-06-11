@@ -19,6 +19,15 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import BaggingClassifier
 
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.ensemble import RandomForestRegressor
+import xgboost as xgb
+from sklearn.svm import SVR
+
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import LSTM
+
 
 # Pfad zum Directory des Datensatzes
 DATA_DIR = r'D:\HS Albstadt\Sommersemester 2022' \
@@ -80,7 +89,7 @@ TEST_SETS = {'Bearing1_3': 1802,
              'Bearing2_7': 172,
              'Bearing3_3': 352}
 
-# Features
+# Features - TIMESTAMP für Klassifikation entfernen
 FEATURES = ['mean_acc_x', 'mean_acc_y',
             'abs_mean_x', 'abs_mean_y',
             'std_x', 'std_y',
@@ -103,10 +112,12 @@ FEATURES = ['mean_acc_x', 'mean_acc_y',
             'max_freq_2_y',
             'max_freq_3_y',
             'max_freq_4_y',
-            'max_freq_5_y']
+            'max_freq_5_y',
+            'TIMESTAMP']
 
 # Zielgröße
-Y = ['RUL_Class']
+Y_CLASSIFICATION = ['RUL_Class']
+Y_REGRESSION = ['RUL']
 
 # Klassifikationsmodelle
 CLASSIFIER = {'Linear_SVC': SVC(kernel="linear", C=0.025, random_state=14),
@@ -176,3 +187,27 @@ TUNED_CLASSIFIER = {'Random_Forest':
                                                min_samples_leaf=0.1,
                                                min_samples_split=0.1)
                     }
+
+ACTIVE_REGRESSORS = {'SVR': SVR(kernel="rbf", C=100, gamma=0.1, epsilon=0.1)}
+
+REGRESSORS = {'Linear_Regression': LinearRegression(),
+              'Ridge_Regression': Ridge(random_state=11),
+              'Lasso_Regression': Lasso(random_state=11),
+              'Elastic_Net': ElasticNet(random_state=11),
+              'RandomForestRegressor': RandomForestRegressor(random_state=11),
+              'XGBoost': xgb.XGBRegressor(objective='reg:squarederror',
+                                          colsample_bytree=0.3,
+                                          learning_rate=0.1,
+                                          max_depth=5,
+                                          alpha=10,
+                                          n_estimators=10),
+              'SVR': SVR(kernel="rbf", C=100, gamma=0.1, epsilon=0.1)}
+
+
+def LSTM_model():
+    model = Sequential()
+    model.add(LSTM(4, input_shape=([len(FEATURES), 1])))
+    model.add(Dense(1))
+    model.compile(loss='mean_squared_error', optimizer='adam')
+
+    return model

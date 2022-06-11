@@ -94,8 +94,33 @@ def append_rul_class_col(df):
 
         return val
 
+    def calc_rul(row):
+        diff = rul_0_index - row['index']
+        # Zeit bis zum Ausfall in Stunden
+        time_to_failure = (diff * 10) / 3600
+
+        if np.isnan(time_to_failure):
+            time_to_failure = len(df) / 360 - row['index'] / 360
+
+        return time_to_failure
+
+    def calc_timestamp(row):
+        # Erster Eintrag ist Nullpunkt [in Sekunden]
+        if row['index'] == 0:
+            timestamp = 0
+        else:
+            timestamp = row['index'] * 10
+
+        return timestamp
+
     # RUL-Klassen anlegen
     df_reset['RUL_Class'] = df_reset.apply(calc_rul_class, axis=1)
+
+    # RUL-Wert anlegen
+    df_reset['RUL'] = df_reset.apply(calc_rul, axis=1)
+
+    # Timestamp anfügen
+    df_reset['TIMESTAMP'] = df_reset.apply(calc_timestamp, axis=1)
 
     return df_reset
 
