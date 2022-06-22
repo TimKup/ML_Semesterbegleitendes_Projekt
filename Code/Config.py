@@ -274,3 +274,16 @@ def keras_model_3():
     model.compile(loss='mean_squared_error', optimizer='SGD')
 
     return model
+
+def keras_model_4():
+    model = Sequential()
+    model.add(Dense(units=37, input_dim=len(FEATURES),
+                    kernel_initializer='normal', activation='relu'))
+    model.add(Dense(37, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(18, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(1, kernel_initializer='normal', activation='softmax'))
+    model.compile(loss='mean_squared_error', optimizer='Nadam')
+
+    return model
