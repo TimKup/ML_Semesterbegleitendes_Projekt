@@ -27,6 +27,7 @@ from sklearn.svm import SVR
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
+from keras.layers import Dropout
 
 
 # Pfad zum Directory des Datensatzes
@@ -209,5 +210,67 @@ def LSTM_model():
     model.add(LSTM(4, input_shape=([len(FEATURES), 1])))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error', optimizer='adam')
+
+    return model
+
+
+def LSTM_model_2():
+    model = Sequential()
+    model.add(LSTM(units=37, return_sequences=True,
+                   input_shape=([len(FEATURES), 1]),
+                   activation='tanh'))
+    model.add(Dropout(0.2))
+
+    model.add(LSTM(units=37, return_sequences=True, activation='tanh'))
+    model.add(Dropout(0.25))
+
+    model.add(LSTM(units=37, activation='tanh'))
+    model.add(Dropout(0.25))
+
+    model.add(Dense(units=1, activation='linear'))
+    model.compile(loss='mean_squared_error', optimizer='adam')
+
+    return model
+
+
+def keras_model():
+    model = Sequential()
+    model.add(Dense(units=37, input_dim=len(FEATURES),
+                    kernel_initializer='normal', activation='relu'))
+    model.add(Dense(18, kernel_initializer='normal', activation='relu'))
+    model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    model.compile(loss='mean_squared_error', optimizer='adam')
+
+    return model
+
+
+def keras_model_2():
+    model = Sequential()
+    model.add(Dense(units=37, input_dim=len(FEATURES),
+                    kernel_initializer='normal', activation='relu'))
+    model.add(Dense(37, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(18, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(10, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    model.compile(loss='mean_squared_error', optimizer='adam')
+
+    return model
+
+
+def keras_model_3():
+    model = Sequential()
+    model.add(Dense(units=37, input_dim=len(FEATURES),
+                    kernel_initializer='normal', activation='relu'))
+    model.add(Dense(37, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(18, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(10, kernel_initializer='normal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    model.compile(loss='mean_squared_error', optimizer='SGD')
 
     return model

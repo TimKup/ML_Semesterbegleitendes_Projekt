@@ -15,9 +15,10 @@ import Helper_Functions as helper
 import Regression as rg
 
 import os
-# import numpy as np
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -197,6 +198,17 @@ def prepare_regression_data():
     # Trainingsdaten zur Klassifizierung einlesen
     filepath = os.path.join(c.INPUT_CLASSIFIER, 'Lernset_Klassifikation.csv')
     df = pd.read_csv(filepath, index_col=[0, 1])
+    # df.reset_index(inplace=True)
+
+    # Labels anzeigen
+    # print(df['RUL'].tail())
+    # sns.scatterplot(x='Observation', y='RUL', hue='bearing', data=df)
+    # plt.title('RUL visualization for trainingsset')
+    # plt.show()
+
+    # sns.scatterplot(x='TIMESTAMP', y='RUL', hue='bearing', data=df)
+    # plt.title('RUL visualization for trainingsset')
+    # plt.show()
 
     # Merkmale extrahieren
     X = df[c.FEATURES]
@@ -238,6 +250,8 @@ def prepare_regression_data():
 
 def run_regression_models(X_train, X_test, y_train, y_test,
                           X_testset, y_testset, df_test):
+    figure = 1
+
     # Modelle betrachten
     for name, model in c.REGRESSORS.items():
         print('=' * 20)
@@ -257,21 +271,31 @@ def run_regression_models(X_train, X_test, y_train, y_test,
         rg.score_model(predictions, y_testset)
 
         # Betrachtung der einzelnen Bearings
-        # for bearing in c.TEST_SETS:
-        #     print('\nErgebnisse für {}:'.format(bearing))
-        #     reduced_set = df_test.loc[bearing, slice(None), :]
-        #     reduced_X = reduced_set[c.FEATURES]
-        #     reduced_y = reduced_set[c.Y_REGRESSION]
+        for bearing in c.TEST_SETS:
+            print('\nErgebnisse für {}:'.format(bearing))
+            reduced_set = df_test.loc[bearing, slice(None), :]
+            reduced_X = reduced_set[c.FEATURES]
+            reduced_y = reduced_set[c.Y_REGRESSION]
 
-        #     # Merkmale skalieren
-        #     reduced_X = StandardScaler().fit_transform(reduced_X)
+            # Merkmale skalieren
+            reduced_X = MinMaxScaler(feature_range=(0, 1)).fit_transform(reduced_X)
 
-        #     # Dimensionsreduzierung
-        #     # pca = PCA(n_components=n_components)
-        #     # reduced_X = pca.fit_transform(reduced_X)
+            # Dimensionsreduzierung
+            # pca = PCA(n_components=n_components)
+            # reduced_X = pca.fit_transform(reduced_X)
 
-        #     predictions = reg.predict(reduced_X)
-        #     rg.score_model(predictions, reduced_y)
+            predictions = reg.predict(reduced_X)
+            rg.score_model(predictions, reduced_y)
+
+            plt.figure(figure)
+            plt.plot(reduced_y['RUL'].to_list(), color='black', label='Real')
+            plt.plot(predictions, color='green', label='Predictions')
+            plt.title('RUL Prediction for {} model {}'.format(bearing, name))
+            plt.xlabel('Time')
+            plt.ylabel('RUL')
+            plt.legend()
+            plt.show()
+            figure += 1
 
 
 def main():
@@ -301,19 +325,64 @@ def main():
     #                       X_testset, y_testset, df_test)
 
     # Deep-Learning
-    model = c.LSTM_model()
-    model.fit(X_train, y_train, epochs=2, batch_size=1, verbose=1)
+    model = c.keras_model_3()
+    training_hist = model.fit(X_train, y_train, epochs=100, batch_size=8,
+                              verbose=1, validation_split=0.2)
     # make predictions
     trainPredict = model.predict(X_train)
     testPredict = model.predict(X_test)
 
     print('Ergebnisse des Trainings:')
+    # rg.score_model(trainPredict, y_train)
     rg.score_model(testPredict, y_test)
 
     # Genauigkeit für Testdatensatz bestimmen
     print('\nErgebnisse des gesamten Testsets:')
     predictions = model.predict(X_testset)
-    rg.score_model(predictions, y_testset)
+    # rg.score_model(predictions, y_testset)
+
+    # Early Stopping Kurve
+    plt.figure(1)
+    x_cords = np.arange(100)+1
+    loss = training_hist.history['loss']
+    val_loss = training_hist.history['val_loss']
+    plt.plot(x_cords, loss, label='Traing-Loss')
+    plt.plot(x_cords, val_loss, label='Validierung-Loss')
+    plt.title('Vergleich von Training und Validierungs Loss-Funktion')
+    plt.legend(loc='best')
+    plt.show()
+
+    figure = 2
+
+    # Testsets einzeln betrachten
+    for bearing in c.TEST_SETS:
+        print('\nErgebnisse für {}:'.format(bearing))
+        reduced_set = df_test.loc[bearing, slice(None), :]
+        reduced_X = reduced_set[c.FEATURES]
+        reduced_y = reduced_set[c.Y_REGRESSION]
+
+        # Merkmale skalieren
+        reduced_X = MinMaxScaler(feature_range=(0, 1)).fit_transform(reduced_X)
+
+        # Dimensionsreduzierung
+        # pca = PCA(n_components=n_components)
+        # reduced_X = pca.fit_transform(reduced_X)
+
+        predictions = model.predict(reduced_X)
+        rg.score_model(predictions, reduced_y)
+
+        # print(predictions)
+        # print(reduced_y)
+
+        plt.figure(figure)
+        plt.plot(reduced_y['RUL'].to_list(), color='black', label='Real')
+        plt.plot(predictions, color='green', label='Predictions')
+        plt.title('RUL Prediction for {}'.format(bearing))
+        plt.xlabel('Time')
+        plt.ylabel('RUL')
+        plt.legend()
+        plt.show()
+        figure += 1
 
 
 if __name__ == '__main__':

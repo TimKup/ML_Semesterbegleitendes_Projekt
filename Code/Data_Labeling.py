@@ -105,11 +105,11 @@ def append_rul_class_col(df):
         return time_to_failure
 
     def calc_timestamp(row):
-        # Erster Eintrag ist Nullpunkt [in Sekunden]
+        # Erster Eintrag ist Nullpunkt [in Stunden]
         if row['index'] == 0:
             timestamp = 0
         else:
-            timestamp = row['index'] * 10
+            timestamp = row['index'] * 10 / 3600
 
         return timestamp
 
@@ -118,6 +118,7 @@ def append_rul_class_col(df):
 
     # RUL-Wert anlegen
     df_reset['RUL'] = df_reset.apply(calc_rul, axis=1)
+    df_reset[df_reset['RUL'] < 0] = 0
 
     # Timestamp anfügen
     df_reset['TIMESTAMP'] = df_reset.apply(calc_timestamp, axis=1)
