@@ -192,6 +192,17 @@ def run_classification_models(X_train, X_test, y_train, y_test,
 
             predictions = clf.predict(reduced_X)
             cl.score_model(predictions, reduced_y)
+            
+            #Vorhergesagte RUL-Klasse mit tatsächlicher Labelung vergleichen
+            plt.figure(figure)
+            plt.plot(reduced_y['RUL_Class'].to_list(), color='black', label='Real', alpha=0.5)
+            plt.plot(predictions, color='green', label='Predictions', alpha=0.5, linestyle='none', marker='x')
+            plt.title('Predicted RUL-Class for {} model {}'.format(bearing, name))
+            plt.xlabel('TIme')
+            plt.ylabel('RUL-Class')
+            plt.legend()
+            plt.show()
+            figure += 1 
 
 
 def prepare_regression_data():
