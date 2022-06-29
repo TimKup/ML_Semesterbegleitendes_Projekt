@@ -1,0 +1,229 @@
+====================
+Modell: Gradient_Boosting
+Ergebnisse des Trainings:
+Recall: 1.0
+Precision: 1.0
+Accuracy: 1.0
+F1-Score: 1.0
+[[  73    0    0]
+ [   0 2646    0]
+ [   0    0 4815]]
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        73
+           1       1.00      1.00      1.00      2646
+           2       1.00      1.00      1.00      4815
+
+    accuracy                           1.00      7534
+   macro avg       1.00      1.00      1.00      7534
+weighted avg       1.00      1.00      1.00      7534
+
+Ergebnisse des gesamten Testsets:
+Recall: 0.6901640518661796
+Precision: 0.6833737978553355
+Accuracy: 0.6901640518661796
+F1-Score: 0.6859016901652596
+[[ 117    0    0]
+ [  32 2128 2329]
+ [  27 1937 7389]]
+              precision    recall  f1-score   support
+
+           0       0.66      1.00      0.80       117
+           1       0.52      0.47      0.50      4489
+           2       0.76      0.79      0.77      9353
+
+    accuracy                           0.69     13959
+   macro avg       0.65      0.75      0.69     13959
+weighted avg       0.68      0.69      0.69     13959
+
+Ergebnisse für Bearing1_3:
+Recall: 0.7918978912319645
+Precision: 0.7741873980705734
+Accuracy: 0.7918978912319645
+F1-Score: 0.7586396417391409
+[[  86    0    0]
+ [   9  126  306]
+ [   0   60 1215]]
+              precision    recall  f1-score   support
+
+           0       0.91      1.00      0.95        86
+           1       0.68      0.29      0.40       441
+           2       0.80      0.95      0.87      1275
+
+    accuracy                           0.79      1802
+   macro avg       0.79      0.75      0.74      1802
+weighted avg       0.77      0.79      0.76      1802
+
+Ergebnisse für Bearing1_4:
+Recall: 0.704126426690079
+Precision: 0.7779731399385138
+Accuracy: 0.704126426690079
+F1-Score: 0.647762319026052
+[[ 31   0   0]
+ [  3 112 326]
+ [  0   8 659]]
+              precision    recall  f1-score   support
+
+           0       0.91      1.00      0.95        31
+           1       0.93      0.25      0.40       441
+           2       0.67      0.99      0.80       667
+
+    accuracy                           0.70      1139
+   macro avg       0.84      0.75      0.72      1139
+weighted avg       0.78      0.70      0.65      1139
+
+Ergebnisse für Bearing1_5:
+Recall: 0.5790616854908774
+Precision: 0.7704753450655217
+Accuracy: 0.5790616854908774
+F1-Score: 0.623425378510948
+[[ 312  128]
+ [ 841 1021]]
+              precision    recall  f1-score   support
+
+           1       0.27      0.71      0.39       440
+           2       0.89      0.55      0.68      1862
+
+    accuracy                           0.58      2302
+   macro avg       0.58      0.63      0.53      2302
+weighted avg       0.77      0.58      0.62      2302
+
+Ergebnisse für Bearing1_6:
+Recall: 0.7011294526498697
+Precision: 0.7257788781066548
+Accuracy: 0.7011294526498697
+F1-Score: 0.7124199354576537
+[[   0    0    0]
+ [   1  145  294]
+ [   3  390 1469]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.27      0.33      0.30       440
+           2       0.83      0.79      0.81      1862
+
+    accuracy                           0.70      2302
+   macro avg       0.37      0.71      0.37      2302
+weighted avg       0.73      0.70      0.71      2302
+
+Ergebnisse für Bearing1_7:
+Recall: 0.5805592543275633
+Precision: 0.6833658057907338
+Accuracy: 0.5805592543275633
+F1-Score: 0.5985681266490482
+[[  0   0   0]
+ [  0 307 134]
+ [  1 495 565]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.38      0.70      0.49       441
+           2       0.81      0.53      0.64      1061
+
+    accuracy                           0.58      1502
+   macro avg       0.40      0.74      0.38      1502
+weighted avg       0.68      0.58      0.60      1502
+
+Ergebnisse für Bearing2_3:
+Recall: 0.6855241264559068
+Precision: 0.6728001905982512
+Accuracy: 0.6855241264559068
+F1-Score: 0.6674095120050523
+[[177 264]
+ [114 647]]
+              precision    recall  f1-score   support
+
+           1       0.61      0.40      0.48       441
+           2       0.71      0.85      0.77       761
+
+    accuracy                           0.69      1202
+   macro avg       0.66      0.63      0.63      1202
+weighted avg       0.67      0.69      0.67      1202
+
+Ergebnisse für Bearing2_4:
+Recall: 0.5473856209150327
+Precision: 0.8103640787312058
+Accuracy: 0.5473856209150327
+F1-Score: 0.5482122983636836
+[[  0   0   0]
+ [  2 168 271]
+ [  0   4 167]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.98      0.38      0.55       441
+           2       0.38      0.98      0.55       171
+
+    accuracy                           0.55       612
+   macro avg       0.45      0.79      0.37       612
+weighted avg       0.81      0.55      0.55       612
+
+Ergebnisse für Bearing2_5:
+Recall: 0.6518481518481518
+Precision: 0.6399618221793553
+Accuracy: 0.6518481518481518
+F1-Score: 0.6456504275006507
+[[   0    0    0]
+ [   0   71  370]
+ [   8  319 1234]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.18      0.16      0.17       441
+           2       0.77      0.79      0.78      1561
+
+    accuracy                           0.65      2002
+   macro avg       0.32      0.65      0.32      2002
+weighted avg       0.64      0.65      0.65      2002
+
+Ergebnisse für Bearing2_6:
+Recall: 0.3968531468531469
+Precision: 0.6171033848225348
+Accuracy: 0.3968531468531469
+F1-Score: 0.4287667511337807
+[[  0   0   0]
+ [  1 149 291]
+ [  0  53  78]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.74      0.34      0.46       441
+           2       0.21      0.60      0.31       131
+
+    accuracy                           0.40       572
+   macro avg       0.32      0.64      0.26       572
+weighted avg       0.62      0.40      0.43       572
+
+Ergebnisse für Bearing2_7:
+Recall: 0.3081395348837209
+Precision: 0.9757751937984497
+Accuracy: 0.3081395348837209
+F1-Score: 0.4683720930232557
+[[  0   0   0]
+ [  1  53 117]
+ [  0   1   0]]
+              precision    recall  f1-score   support
+
+           0       0.00      1.00      0.00         0
+           1       0.98      0.31      0.47       171
+           2       0.00      0.00      0.00         1
+
+    accuracy                           0.31       172
+   macro avg       0.33      0.44      0.16       172
+weighted avg       0.98      0.31      0.47       172
+
+Ergebnisse für Bearing3_3:
+Recall: 0.22443181818181818
+Precision: 0.9971694591904445
+Accuracy: 0.22443181818181818
+F1-Score: 0.3626239669421487
+[[ 78 273]
+ [  0   1]]
+              precision    recall  f1-score   support
+
+           1       1.00      0.22      0.36       351
+           2       0.00      1.00      0.01         1
+
+    accuracy                           0.22       352
+   macro avg       0.50      0.61      0.19       352
+weighted avg       1.00      0.22      0.36       352

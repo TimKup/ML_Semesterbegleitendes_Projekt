@@ -1,0 +1,221 @@
+Epoch 1/50
+471/471 [==============================] - 2s 4ms/step - loss: 4.0990 - val_loss: 2.7955
+Epoch 2/50
+471/471 [==============================] - 2s 3ms/step - loss: 3.8056 - val_loss: 2.7981
+Epoch 3/50
+471/471 [==============================] - 2s 3ms/step - loss: 3.8032 - val_loss: 2.7949
+Epoch 4/50
+471/471 [==============================] - 2s 3ms/step - loss: 3.8040 - val_loss: 2.7952
+Epoch 5/50
+471/471 [==============================] - 2s 3ms/step - loss: 3.7982 - val_loss: 2.7978
+Epoch 6/50
+471/471 [==============================] - 2s 3ms/step - loss: 3.7868 - val_loss: 2.8013
+Epoch 7/50
+471/471 [==============================] - 1s 3ms/step - loss: 3.4119 - val_loss: 2.7842
+Epoch 8/50
+471/471 [==============================] - 2s 3ms/step - loss: 2.6126 - val_loss: 2.5976
+Epoch 9/50
+471/471 [==============================] - 2s 3ms/step - loss: 2.2935 - val_loss: 3.1285
+Epoch 10/50
+471/471 [==============================] - 1s 3ms/step - loss: 2.1123 - val_loss: 2.8324
+Epoch 11/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.8659 - val_loss: 3.2352
+Epoch 12/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.6702 - val_loss: 3.0355
+Epoch 13/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.6313 - val_loss: 2.4512
+Epoch 14/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.4877 - val_loss: 3.1226
+Epoch 15/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.3973 - val_loss: 2.5719
+Epoch 16/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.2879 - val_loss: 2.9596
+Epoch 17/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.2658 - val_loss: 2.5924
+Epoch 18/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.1520 - val_loss: 3.3121
+Epoch 19/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.1596 - val_loss: 2.9949
+Epoch 20/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.1578 - val_loss: 2.5459
+Epoch 21/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.0784 - val_loss: 2.7182
+Epoch 22/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.1053 - val_loss: 2.3793
+Epoch 23/50
+471/471 [==============================] - 2s 3ms/step - loss: 1.0109 - val_loss: 2.3316
+Epoch 24/50
+471/471 [==============================] - 2s 4ms/step - loss: 0.9656 - val_loss: 2.7492
+Epoch 25/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.9629 - val_loss: 2.8960
+Epoch 26/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.9164 - val_loss: 2.8492
+Epoch 27/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.9295 - val_loss: 3.1454
+Epoch 28/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.9204 - val_loss: 2.8444
+Epoch 29/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8580 - val_loss: 2.6199
+Epoch 30/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8917 - val_loss: 3.0816
+Epoch 31/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8485 - val_loss: 2.4541
+Epoch 32/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.9033 - val_loss: 2.6801
+Epoch 33/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8366 - val_loss: 2.6952
+Epoch 34/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8633 - val_loss: 2.6960
+Epoch 35/50
+471/471 [==============================] - 2s 4ms/step - loss: 0.8402 - val_loss: 3.8842
+Epoch 36/50
+471/471 [==============================] - 1s 3ms/step - loss: 0.8358 - val_loss: 2.7320
+Epoch 37/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8402 - val_loss: 2.8618
+Epoch 38/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8086 - val_loss: 2.9598
+Epoch 39/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8085 - val_loss: 2.6343
+Epoch 40/50
+471/471 [==============================] - 2s 4ms/step - loss: 0.7834 - val_loss: 2.9779
+Epoch 41/50
+471/471 [==============================] - 2s 4ms/step - loss: 0.7748 - val_loss: 2.8253
+Epoch 42/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.7790 - val_loss: 2.7011
+Epoch 43/50
+471/471 [==============================] - 1s 3ms/step - loss: 0.7524 - val_loss: 2.8866
+Epoch 44/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.7804 - val_loss: 2.9663
+Epoch 45/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.7467 - val_loss: 2.6727
+Epoch 46/50
+471/471 [==============================] - 1s 3ms/step - loss: 0.8855 - val_loss: 2.8240
+Epoch 47/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8014 - val_loss: 2.8782
+Epoch 48/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.8179 - val_loss: 2.8703
+Epoch 49/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.7686 - val_loss: 3.4298
+Epoch 50/50
+471/471 [==============================] - 2s 3ms/step - loss: 0.7784 - val_loss: 3.0308
+Ergebnisse des Trainings:
+
+Ergebnisse des gesamten Testsets:
+437/437 [==============================] - 1s 1ms/step
+Explained Variance Score: -0.08275875275870526
+Max Error: 5.729975170559353
+Mean Absolute Error: 1.3501954740925375
+Mean Squared Error: 3.0307963143690086
+Root Mean Squared Error: 1.7409182388524191
+R2-Score: -0.08434324738524412
+Mean Absolute Percentage Error: 14289297349142.879
+
+Ergebnisse für Bearing1_3:
+57/57 [==============================] - 0s 1ms/step
+Explained Variance Score: 0.640176263286756
+Max Error: 3.2258797539605037
+Mean Absolute Error: 0.6105071623723154
+Mean Squared Error: 0.7419889028288198
+Root Mean Squared Error: 0.8613877772692272
+R2-Score: 0.6400759384674386
+Mean Absolute Percentage Error: 24898638064869.21
+
+Ergebnisse für Bearing1_4:
+36/36 [==============================] - 0s 2ms/step
+Explained Variance Score: -1.172733310602465
+Max Error: 3.2304666943020286
+Mean Absolute Error: 1.231675408342596
+Mean Squared Error: 2.334050324365429
+Root Mean Squared Error: 1.5277599040312024
+R2-Score: -1.8096682931763493
+Mean Absolute Percentage Error: 81837781721098.56
+
+Ergebnisse für Bearing1_5:
+72/72 [==============================] - 0s 2ms/step
+Explained Variance Score: -0.04782924471400429
+Max Error: 7.24915018611484
+Mean Absolute Error: 2.60794399130677
+Mean Squared Error: 10.359690002005797
+Root Mean Squared Error: 3.2186472316806944
+R2-Score: -2.040342083728329
+Mean Absolute Percentage Error: 1.2242780275880079
+
+Ergebnisse für Bearing1_6:
+72/72 [==============================] - 0s 2ms/step
+Explained Variance Score: 0.4947584498888127
+Max Error: 6.240473779042563
+Mean Absolute Error: 2.396265335077945
+Mean Squared Error: 7.4607034049199825
+Root Mean Squared Error: 2.731428821133727
+R2-Score: -1.1895530205828226
+Mean Absolute Percentage Error: 1.8476225110741686
+
+Ergebnisse für Bearing1_7:
+47/47 [==============================] - 0s 1ms/step
+Explained Variance Score: -0.15199667272987427
+Max Error: 4.282546117570665
+Mean Absolute Error: 1.7942982490201342
+Mean Squared Error: 4.054392393245942
+Root Mean Squared Error: 2.0135521828961727
+R2-Score: -1.7949391246270894
+Mean Absolute Percentage Error: 4.061966592623019
+
+Ergebnisse für Bearing2_3:
+38/38 [==============================] - 0s 2ms/step
+Explained Variance Score: 0.10216438942153194
+Max Error: 5.506443256802029
+Mean Absolute Error: 0.723768532549438
+Mean Squared Error: 1.1228962912066722
+Root Mean Squared Error: 1.0596680099005877
+R2-Score: -0.2086964880918829
+Mean Absolute Percentage Error: 0.9401827403376062
+
+Ergebnisse für Bearing2_4:
+20/20 [==============================] - 0s 2ms/step
+Explained Variance Score: -1.41224447541529
+Max Error: 3.56194708082411
+Mean Absolute Error: 1.5128392131889568
+Mean Squared Error: 2.869629811708239
+Root Mean Squared Error: 1.6939981734666183
+R2-Score: -10.915449716504257
+Mean Absolute Percentage Error: 7.671470157498032
+
+Ergebnisse für Bearing2_5:
+63/63 [==============================] - 0s 2ms/step
+Explained Variance Score: 0.657419528695661
+Max Error: 4.742657441563077
+Mean Absolute Error: 2.0385907574080506
+Mean Squared Error: 5.0363325076001395
+Root Mean Squared Error: 2.2441774679378943
+R2-Score: -0.9542161809309366
+Mean Absolute Percentage Error: 1.9962786898978102
+
+Ergebnisse für Bearing2_6:
+18/18 [==============================] - 0s 1ms/step
+Explained Variance Score: -0.5379322960819746
+Max Error: 3.2650670475429955
+Mean Absolute Error: 1.2719945163159936
+Mean Squared Error: 1.933034675791064
+Root Mean Squared Error: 1.390336173661271
+R2-Score: -8.1882999049164
+Mean Absolute Percentage Error: 7.276497012109979
+
+Ergebnisse für Bearing2_7:
+6/6 [==============================] - 0s 1ms/step
+Explained Variance Score: -30.841442923512243
+Max Error: 2.815454112158881
+Mean Absolute Error: 0.7151697256768397
+Mean Squared Error: 0.7710806323364233
+Root Mean Squared Error: 0.8781119702728254
+R2-Score: -39.53627419158319
+Mean Absolute Percentage Error: 5.549570289781454
+
+Ergebnisse für Bearing3_3:
+11/11 [==============================] - 0s 2ms/step
+Explained Variance Score: -19.489837278307295
+Max Error: 6.66988918516371
+Mean Absolute Error: 0.9751737048454356
+Mean Squared Error: 1.8284268297826467
+Root Mean Squared Error: 1.3521933403854076
+R2-Score: -21.949964130634225
+Mean Absolute Percentage Error: 9.85847429439846

@@ -1,0 +1,118 @@
+====================
+Modell: Lasso_Regression
+Ergebnisse des Trainings:
+Explained Variance Score: 0.0
+Max Error: 5.292721514320267
+Mean Absolute Error: 1.5738287100385655
+Mean Squared Error: 3.7992898147217296
+Root Mean Squared Error: 1.9491767017696804
+R2-Score: 0.0
+Mean Absolute Percentage Error: 102137779620738.94
+
+Ergebnisse des gesamten Testsets:
+Explained Variance Score: 0.0
+Max Error: 4.0538326254313795
+Mean Absolute Error: 1.411866568943039
+Mean Squared Error: 2.7953580313070465
+Root Mean Squared Error: 1.6719324242645235
+R2-Score: -0.00010930820435772759
+Mean Absolute Percentage Error: 88352882467471.06
+
+Ergebnisse für Bearing1_3:
+Explained Variance Score: 0.0
+Max Error: 2.4260548476536
+Mean Absolute Error: 1.2468884784831884
+Mean Squared Error: 2.0663732138101265
+Root Mean Squared Error: 1.4374885091054213
+R2-Score: -0.0023565540146850417
+Mean Absolute Percentage Error: 503075112302808.5
+
+Ergebnisse für Bearing1_4:
+Explained Variance Score: 1.1102230246251565e-16
+Max Error: 2.3406118190130667
+Mean Absolute Error: 1.0146583130688112
+Mean Squared Error: 1.5401153839806976
+Root Mean Squared Error: 1.2410138532589785
+R2-Score: -0.8539503270479598
+Mean Absolute Percentage Error: 286897747141104.7
+
+Ergebnisse für Bearing1_5:
+Explained Variance Score: 0.0
+Max Error: 4.0538326254313795
+Mean Absolute Error: 1.7137364640722719
+Mean Squared Error: 4.143572121660499
+Root Mean Squared Error: 2.0355766066794194
+R2-Score: -0.21604765161976403
+Mean Absolute Percentage Error: 2.577509766188782
+
+Ergebnisse für Bearing1_6:
+Explained Variance Score: 0.0
+Max Error: 4.0538326254313795
+Mean Absolute Error: 1.7137364640722719
+Mean Squared Error: 4.143572121660499
+Root Mean Squared Error: 2.0355766066794194
+R2-Score: -0.21604765161976403
+Mean Absolute Percentage Error: 2.577509766188782
+
+Ergebnisse für Bearing1_7:
+Explained Variance Score: 1.1102230246251565e-16
+Max Error: 2.3378340412352885
+Mean Absolute Error: 1.058410797421468
+Mean Squared Error: 1.514684805887066
+Root Mean Squared Error: 1.2307253169928154
+R2-Score: -0.04416430745684519
+Mean Absolute Percentage Error: 3.657198837305317
+
+Ergebnisse für Bearing2_3:
+Explained Variance Score: 0.0
+Max Error: 2.337834041235289
+Mean Absolute Error: 0.9690792263707416
+Mean Squared Error: 1.3776174945707944
+Root Mean Squared Error: 1.1737195127332571
+R2-Score: -0.48288086857273926
+Mean Absolute Percentage Error: 4.476528690738225
+
+Ergebnisse für Bearing2_4:
+Explained Variance Score: -2.220446049250313e-16
+Max Error: 2.337834041235289
+Mean Absolute Error: 1.489222930124178
+Mean Squared Error: 2.45861762593686
+Root Mean Squared Error: 1.5679979674530384
+R2-Score: -9.208820167129023
+Mean Absolute Percentage Error: 8.630605277098839
+
+Ergebnisse für Bearing2_5:
+Explained Variance Score: 0.0
+Max Error: 3.220499292098045
+Mean Absolute Error: 1.4253021408582864
+Mean Squared Error: 2.7719369091096593
+Root Mean Squared Error: 1.6649134839713622
+R2-Score: -0.07557710936028283
+Mean Absolute Percentage Error: 2.872655594276132
+
+Ergebnisse für Bearing2_6:
+Explained Variance Score: 0.0
+Max Error: 2.337834041235289
+Mean Absolute Error: 1.5447784856797335
+Mean Squared Error: 2.5967205852510693
+Root Mean Squared Error: 1.6114343254539012
+R2-Score: -11.343000260351126
+Mean Absolute Percentage Error: 9.204585781771346
+
+Ergebnisse für Bearing2_7:
+Explained Variance Score: -4.440892098500626e-16
+Max Error: 2.337834041235289
+Mean Absolute Error: 2.1003340412352887
+Mean Squared Error: 4.430425075512501
+Root Mean Squared Error: 2.1048574952980785
+R2-Score: -231.91069456907823
+Mean Absolute Percentage Error: 27.059324549373642
+
+Ergebnisse für Bearing3_3:
+Explained Variance Score: 0.0
+Max Error: 2.337834041235289
+Mean Absolute Error: 1.850334041235289
+Mean Squared Error: 3.503406203043005
+Root Mean Squared Error: 1.8717388180627672
+R2-Score: -42.97389350518133
+Mean Absolute Percentage Error: 14.421546429583115

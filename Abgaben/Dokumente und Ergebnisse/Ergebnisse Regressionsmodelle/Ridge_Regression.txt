@@ -1,0 +1,118 @@
+====================
+Modell: Ridge_Regression
+Ergebnisse des Trainings:
+Explained Variance Score: 0.5289437676983455
+Max Error: 5.013200195228308
+Mean Absolute Error: 1.0229440098374178
+Mean Squared Error: 1.7896791455448688
+Root Mean Squared Error: 1.3377889017123998
+R2-Score: 0.5289437676983455
+Mean Absolute Percentage Error: 33254726769178.56
+
+Ergebnisse des gesamten Testsets:
+Explained Variance Score: 0.11245838141079356
+Max Error: 8.918770695468329
+Mean Absolute Error: 3.2157793329559503
+Mean Squared Error: 12.625687587947478
+Root Mean Squared Error: 3.553264356608931
+R2-Score: -3.5171557767440493
+Mean Absolute Percentage Error: 38500511137892.55
+
+Ergebnisse für Bearing1_3:
+Explained Variance Score: -0.4910910164806721
+Max Error: 9.941139204087412
+Mean Absolute Error: 6.183696188014748
+Mean Squared Error: 40.98170320058328
+Root Mean Squared Error: 6.401695338000964
+R2-Score: -18.879409258333435
+Mean Absolute Percentage Error: 196191209776417.5
+
+Ergebnisse für Bearing1_4:
+Explained Variance Score: -2.144454678264373
+Max Error: 11.322654390696517
+Mean Absolute Error: 6.150971010577518
+Mean Squared Error: 39.29910330532935
+Root Mean Squared Error: 6.26889968856811
+R2-Score: -46.307225278986024
+Mean Absolute Percentage Error: 221140505494939.5
+
+Ergebnisse für Bearing1_5:
+Explained Variance Score: -0.7759457562005849
+Max Error: 12.768082149906402
+Mean Absolute Error: 2.0682457531829654
+Mean Squared Error: 6.544096560678632
+Root Mean Squared Error: 2.558143186117351
+R2-Score: -0.9205489903231501
+Mean Absolute Percentage Error: 2.800163991583047
+
+Ergebnisse für Bearing1_6:
+Explained Variance Score: -0.9890896752950742
+Max Error: 12.597328623278667
+Mean Absolute Error: 3.974447305742724
+Mean Squared Error: 20.101722399516717
+Root Mean Squared Error: 4.4834944406697685
+R2-Score: -4.899415190497212
+Mean Absolute Percentage Error: 5.434293117775786
+
+Ergebnisse für Bearing1_7:
+Explained Variance Score: -4.0590074776060945
+Max Error: 12.257486694198121
+Mean Absolute Error: 2.234548281381555
+Mean Squared Error: 8.727755122227709
+Root Mean Squared Error: 2.9542774281078796
+R2-Score: -5.016572126051486
+Mean Absolute Percentage Error: 7.3339432676073315
+
+Ergebnisse für Bearing2_3:
+Explained Variance Score: -14.279076376167248
+Max Error: 13.019448994676114
+Mean Absolute Error: 5.7571926545193906
+Mean Squared Error: 37.59511621542085
+Root Mean Squared Error: 6.131485645047279
+R2-Score: -39.46774870914754
+Mean Absolute Percentage Error: 14.124281072386891
+
+Ergebnisse für Bearing2_4:
+Explained Variance Score: -25.670831726899948
+Max Error: 14.711472686439672
+Mean Absolute Error: 2.4915410324563014
+Mean Squared Error: 8.596940157735967
+Root Mean Squared Error: 2.9320539145343094
+R2-Score: -34.6967326403403
+Mean Absolute Percentage Error: 10.783372942175557
+
+Ergebnisse für Bearing2_5:
+Explained Variance Score: -0.24526511734439338
+Max Error: 13.026172078014083
+Mean Absolute Error: 1.4686450032201113
+Mean Squared Error: 3.7672818258916494
+Root Mean Squared Error: 1.940948692235745
+R2-Score: -0.4617944885836396
+Mean Absolute Percentage Error: 1.9674541116461364
+
+Ergebnisse für Bearing2_6:
+Explained Variance Score: -21.13176950767249
+Max Error: 9.879208693151298
+Mean Absolute Error: 1.7391358786182085
+Mean Squared Error: 4.850519569456105
+Root Mean Squared Error: 2.202389513563871
+R2-Score: -22.05599017802922
+Mean Absolute Percentage Error: 7.038971021239977
+
+Ergebnisse für Bearing2_7:
+Explained Variance Score: -328.1824641505609
+Max Error: 13.079448379666147
+Mean Absolute Error: 5.887123092361491
+Mean Squared Error: 37.34931723372524
+Root Mean Squared Error: 6.111408776519964
+R2-Score: -1962.48099117363
+Mean Absolute Percentage Error: 75.42507284600414
+
+Ergebnisse für Bearing3_3:
+Explained Variance Score: -125.68021058288993
+Max Error: 10.336204771468426
+Mean Absolute Error: 3.5835475936633476
+Mean Squared Error: 17.763765682782935
+Root Mean Squared Error: 4.214708255951168
+R2-Score: -221.96642042455812
+Mean Absolute Percentage Error: 22.491678094877148
