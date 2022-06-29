@@ -1,3 +1,5 @@
+#Konfiguration#
+
 Folgende Pfade in der Datei config.py müssen angepasst werden, damit der Code im Skript main.py lauffähig ist:
 
 OUTPUT_LABELING --> Pfad, welche den Speicherort für die gelabelten Daten angibt. Muss angepasst werden, damit die Funktionen label_data() aufgerufen werden kann.
